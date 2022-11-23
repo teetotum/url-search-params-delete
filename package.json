@@ -1,0 +1,15 @@
+{
+  "name": "url-search-params-delete",
+  "version": "0.1.0",
+  "description": "A polyfill adding support for `.delete(key,value)` to `URLSearchParams` as discussed at https://github.com/whatwg/url/issues/335",
+  "keywords": [
+    "URLSearchParams",
+    "polyfill"
+  ],
+  "homepage": "https://github.com/teetotum/url-search-params-delete",
+  "bugs": "https://github.com/teetotum/url-search-params-delete/issues",
+  "license": "MIT",
+  "main": "index.js",
+  "author": "Martin Winkler",
+  "repository": "github:teetotum/url-search-params-delete"
+}
