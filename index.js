@@ -2,7 +2,7 @@
   if (window.URLSearchParams) {
     const originalDeleteFunction = URLSearchParams.prototype.delete;
 
-    URLSearchParams.prototype.delete = function (key, value) {
+    const newDeleteFunction = function (key, value) {
       const entriesIterator = URLSearchParams.prototype.entries.call(this);
       const entries = [...entriesIterator];
       const toBeRestored = entries.filter(
@@ -14,6 +14,14 @@
       toBeRestored.forEach(([k, v]) =>
         URLSearchParams.prototype.append.call(this, k, v)
       );
+    };
+
+    URLSearchParams.prototype.delete = function (key, value) {
+      if (arguments.length > 1) {
+        newDeleteFunction.call(this, key, value);
+      } else {
+        originalDeleteFunction.call(this, key);
+      }
     };
   }
 })();
