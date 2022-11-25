@@ -18,9 +18,25 @@
 
     URLSearchParams.prototype.delete = function (key, value) {
       if (arguments.length > 1) {
-        deleteWithKeyAndValue.call(this, key, value);
+        return deleteWithKeyAndValue.call(this, key, value);
       } else {
-        deleteWithKey.call(this, key);
+        return deleteWithKey.call(this, key);
+      }
+    };
+
+    const hasWithKey = URLSearchParams.prototype.has;
+
+    const hasWithKeyAndValue = function (key, value) {
+      const entriesIterator = URLSearchParams.prototype.entries.call(this);
+      const entries = [...entriesIterator];
+      return Boolean(entries.find(([k, v]) => k === key && v === value));
+    };
+
+    URLSearchParams.prototype.has = function (key, value) {
+      if (arguments.length > 1) {
+        return hasWithKeyAndValue.call(this, key, value);
+      } else {
+        return hasWithKey.call(this, key);
       }
     };
   }
