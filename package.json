@@ -1,7 +1,7 @@
 {
   "name": "url-search-params-delete",
   "version": "0.1.2",
-  "description": "A polyfill adding support for `.delete(key,value)` to `URLSearchParams` as discussed at https://github.com/whatwg/url/issues/335",
+  "description": "A polyfill adding support for .delete(key,value) to URLSearchParams as discussed at https://github.com/whatwg/url/issues/335",
   "keywords": [
     "URLSearchParams",
     "polyfill"
