@@ -14,3 +14,12 @@ Install the npm package `url-search-params-delete` and import it in your applica
 ```js
 import "url-search-params-delete";
 ```
+
+The polyfill also adds support for `.has(key,value)` (supporting a second argument for `URLSearchParams.has()`).
+
+```js
+const paramsString = "foo=1";
+const searchParams = new URLSearchParams(paramsString);
+searchParams.has("foo", "1"); // true
+searchParams.has("foo", "2"); // false
+```
